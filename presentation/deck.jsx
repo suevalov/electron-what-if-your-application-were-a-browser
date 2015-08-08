@@ -20,23 +20,16 @@ preloader([images.city, images.kat]);
 export default class extends React.Component {
   render() {
     return (
-      <Deck transition={['zoom', 'slide']} transitionDuration={800}>
-        <Slide transition={['zoom']} bgColor='primary'>
+      <Deck transition={['slide']} transitionDuration={800}>
+        <Slide bgColor='primary'>
           <Heading size={1} fit caps textColor='black'>
-            Spectacle
+            Electron
           </Heading>
-          <Heading size={1} fit caps margin='-20px 0px'>
-            A ReactJS Presentation Library
+          <Heading size={4} caps textColor='black'>
+            What if your desktop appplication were a browser?
           </Heading>
-          <Heading size={2} fit caps textColor='black'>
-            Where You Can Write Your Decks In JSX
-          </Heading>
-          <Link href='https://github.com/FormidableLabs/spectacle'>
-            <Text bold caps textColor='tertiary'>View on Github</Text>
-          </Link>
-          <Text textSize='1.5em' margin='20px 0px 0px' bold>Hit Your Right Arrow To Begin!</Text>
         </Slide>
-        <Slide transition={['slide']} bgColor='black' notes='You can even put notes on your slide. How awesome is that?'>
+        <Slide bgColor='black' notes='You can even put notes on your slide. How awesome is that?'>
           <Image src={images.kat.replace('/', '')} margin='0px auto 40px' height='293px'/>
           <Heading size={1} fit textColor='primary' textFont='secondary'>
             Wait what?
@@ -45,7 +38,7 @@ export default class extends React.Component {
         <Slide transition={['zoom', 'fade']} bgColor='primary' notes='<ul><li>talk about that</li><li>and that</li></ul>'>
           <CodePane
             lang='javascript'
-            source={require('raw!./deck.example')}
+            source={require('raw!./code/1.example')}
             margin='20px auto'/>
         </Slide>
         <Slide transition={['slide']} bgImage={images.city.replace('/', '')} bgDarken={0.75}>
