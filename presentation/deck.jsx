@@ -7,7 +7,6 @@ import {
 
 import preloader from '../src/utils/preloader';
 
-import Interactive from './components/interactive';
 import Suevalov from './components/suevalov';
 import Rectangle from './components/rectangle';
 
@@ -19,7 +18,12 @@ const images = {
   timBernens: require('./images/tim-bernens.jpg'),
   distribution: require('./images/distribution.png'),
   prefer: require('./images/prefer.jpg'),
-  electronApps: require('./images/electron-apps.png')
+  electronApps: require('./images/electron-apps.png'),
+  mainProcess: require('./images/main-process.png'),
+  appStructure: require('./images/application-structure.png'),
+  runHelloWorld: require('./images/run-hello-world.gif'),
+  subscribeSchema: require('./images/subscribe-schema.png'),
+  modules: require('./images/modules.png')
 };
 
 preloader([images.me, images.timBernens, images.logo, images.thanks]);
@@ -143,17 +147,78 @@ export default class extends React.Component {
                 <Text textColor='darkPrimary'>Electron apps list</Text>
             </a>
         </Slide>
-        <Slide bgColor='primary' notes='<ul><li>talk about that</li><li>and that</li></ul>'>
-          <CodePane
-            lang='javascript'
-            source={require('raw!./code/1.example')}
-            margin='20px auto'/>
+        <Slide bgColor='black'>
+            <Heading textColor='primary' size={4}>A 10,000 foot view of Electron</Heading>
+            <Image src={images.appStructure} height='500px'/>
+        </Slide>
+        <Slide bgColor='black'>
+            <Image src={images.mainProcess} height='500px'/>
         </Slide>
         <Slide bgColor='primary'>
-          <Heading size={1} caps fit textColor='tertiary'>
-            Your presentations are interactive
-          </Heading>
-          <Interactive/>
+            <Heading textColor='darkPrimary' size={4}>Let's create Hello world app!</Heading>
+          <CodePane
+            lang='javascript'
+            source={require('raw!./code/package.json.example')}
+            margin='100px 20px 20px 20px' />
+        </Slide>
+        <Slide bgColor='primary'>
+            <CodePane
+            lang='html'
+            source={require('raw!./code/index.html.example')} />
+        </Slide>
+        <Slide bgColor='primary'>
+            <CodePane
+            lang='javascript'
+            source={require('raw!./code/main.example')} />
+        </Slide>
+        <Slide bgColor='primary'>
+            <Heading textColor='darkPrimary' size={4}>Our Hello World!</Heading>
+            <Image src={images.runHelloWorld} width="100%" />
+        </Slide>
+        <Slide bgColor='primary'>
+            <Heading textColor='darkPrimary' size={4}>How to create desktop from web?</Heading>
+            <CodePane lang='css' source={require('raw!./code/convert-app.css.example')} margin='80px 0px 0px 0px' />
+        </Slide>
+        <Slide bgColor='white'>
+            <Heading textColor='darkPrimary' size={4}>Inter-Process Communication</Heading>
+            <Image src={images.subscribeSchema} width="100%" />
+        </Slide>
+        <Slide bgColor='primary'>
+            <Heading textColor='darkPrimary' size={4}>Inter-Process Communication</Heading>
+            <CodePane lang='javascript' source={require('raw!./code/ipc.example')} margin='80px 0px 0px 0px' />
+        </Slide>
+        <Slide bgColor='primary'>
+            <Heading textColor='darkPrimary' size={4}>Electron Modules</Heading>
+            <Image src={images.modules} width="100%" />
+        </Slide>
+        <Slide bgColor='primary' textColor='darkPrimary'>
+            <Heading size={4} textColor='darkPrimary' textFont='primary'>
+                Packaging
+            </Heading>
+            <CodePane lang='bash' source={require('raw!./code/packaging.example')} margin='50px 0px 40px 0px' />
+            <List>
+                <ListItem>location of project</ListItem>
+                <ListItem>name of project</ListItem>
+                <ListItem>which platforms to build</ListItem>
+                <ListItem>architectures to build</ListItem>
+                <ListItem>Electron version to use</ListItem>
+            </List>
+        </Slide>
+        <Slide bgColor='primary' textColor='darkPrimary'>
+            <Heading size={4} textColor='darkPrimary' textFont='primary'>
+                Diving deeper into Electron
+            </Heading>
+            <div style={{ 'margin-top': '60px' }}>
+                <a href="https://github.com/atom/electron/tree/master/docs/api" style={{ 'font-size': '15px'}}>
+                    <Text textColor='darkPrimary'>Check out the Electron API docs</Text>
+                </a>
+                <a href="https://github.com/sindresorhus/awesome-electron" style={{ 'font-size': '15px' }}>
+                    <Text textColor='darkPrimary'>Awesome Electron</Text>
+                </a>
+                <a href="https://www.npmjs.com/" style={{ 'font-size': '15px' }}>
+                    <Text textColor='darkPrimary'>npmjs.org</Text>
+                </a>
+            </div>
         </Slide>
         <Slide bgImage={images.thanks.replace('/', '')} bgDarken={0.6} align='left left'>
             <div className='thanksSlide'>
