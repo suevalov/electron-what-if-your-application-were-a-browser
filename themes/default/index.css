@@ -7,6 +7,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Firefox */
 
 _:-moz-tree-row(hover), .spectacle-deck {
