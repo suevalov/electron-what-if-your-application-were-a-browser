@@ -38,8 +38,8 @@ export default class extends React.Component {
               <Image src={images.logo.replace('/', '')} width='450px' />
             </Fill>
             <Fill>
-                <div style={{ 'margin-top': '100px'}}>
-                  <Heading size={1} caps fits textColor='darkPrimary'>
+                <div style={{ 'marginTop': '100px'}}>
+                  <Heading size={1} caps textColor='darkPrimary'>
                     Electron
                   </Heading>
                   <Heading size={6} textColor='darkPrimary'>
@@ -101,7 +101,7 @@ export default class extends React.Component {
         <Slide bgColor='primary'>
             <Layout>
                 <Fill>
-                    <div style={{'margin-top': '130px'}}>
+                    <div style={{'marginTop': '130px'}}>
                         <Rectangle>
                             Shared code
                         </Rectangle>
@@ -132,7 +132,7 @@ export default class extends React.Component {
                     </a>
                 </Fill>
             </Layout>
-            <a href='https://github.com/atom/electron/blob/master/docs/development/atom-shell-vs-node-webkit.md' target='_blank' style={{ 'font-size': '10px', 'margin-top': '100px', 'display': 'block'}}>
+            <a href='https://github.com/atom/electron/blob/master/docs/development/atom-shell-vs-node-webkit.md' target='_blank' style={{ 'fontSize': '10px', 'marginTop': '100px', 'display': 'block'}}>
                 <Text textColor='darkPrimary'>Electron's tech differences to NW.js</Text>
             </a>
 
@@ -140,10 +140,10 @@ export default class extends React.Component {
         <Slide bgColor='white'>
             <Heading size={4} textColor='darkPrimary'>Notable applications</Heading>
             <Image src={images.electronApps.replace('/', '')} />
-            <a href='https://github.com/nwjs/nw.js/wiki/List-of-apps-and-companies-using-nw.js' target='_blank' style={{ 'font-size': '10px', 'margin-top': '100px', 'display': 'block'}}>
+            <a href='https://github.com/nwjs/nw.js/wiki/List-of-apps-and-companies-using-nw.js' target='_blank' style={{ 'fontSize': '10px', 'marginTop': '100px', 'display': 'block'}}>
                 <Text textColor='darkPrimary'>NW.js apps list</Text>
             </a>
-            <a href='https://github.com/sindresorhus/awesome-electron' target='_blank' style={{ 'font-size': '10px', 'margin-top': '10px', 'display': 'block'}}>
+            <a href='https://github.com/sindresorhus/awesome-electron' target='_blank' style={{ 'fontSize': '10px', 'marginTop': '10px', 'display': 'block'}}>
                 <Text textColor='darkPrimary'>Electron apps list</Text>
             </a>
         </Slide>
@@ -208,21 +208,21 @@ export default class extends React.Component {
             <Heading size={4} textColor='darkPrimary' textFont='primary'>
                 Diving deeper into Electron
             </Heading>
-            <div style={{ 'margin-top': '60px' }}>
-                <a href="https://github.com/atom/electron/tree/master/docs/api" style={{ 'font-size': '15px'}}>
+            <div style={{ 'marginTop': '60px' }}>
+                <a href="https://github.com/atom/electron/tree/master/docs/api" style={{ 'fontSize': '15px'}}>
                     <Text textColor='darkPrimary'>Check out the Electron API docs</Text>
                 </a>
-                <a href="https://github.com/sindresorhus/awesome-electron" style={{ 'font-size': '15px' }}>
+                <a href="https://github.com/sindresorhus/awesome-electron" style={{ 'fontSize': '15px' }}>
                     <Text textColor='darkPrimary'>Awesome Electron</Text>
                 </a>
-                <a href="https://www.npmjs.com/" style={{ 'font-size': '15px' }}>
+                <a href="https://www.npmjs.com/" style={{ 'fontSize': '15px' }}>
                     <Text textColor='darkPrimary'>npmjs.org</Text>
                 </a>
             </div>
         </Slide>
         <Slide bgImage={images.thanks.replace('/', '')} bgDarken={0.6} align='left left'>
             <div className='thanksSlide'>
-              <Heading size={4} caps fits textColor='primary'>Thanks</Heading>
+              <Heading size={4} caps textColor='primary'>Thanks</Heading>
               <div className='thanksSlide__links'>
                 <a href="http://suevalov.com/" target="__blank">Alexander Suevalov</a>
                 <a href="mailto:suevalov.me@gmail.com">suevalov.me@gmail.com</a>
