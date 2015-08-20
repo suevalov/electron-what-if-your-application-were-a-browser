@@ -1,4 +1,4 @@
-/* global setInterval clearInterval */
+/*global setInterval clearInterval*/
 
 import React from "react/addons";
 import cloneWithProps from "react/lib/cloneWithProps";
@@ -61,7 +61,7 @@ class Presenter extends Base {
       transform: "translate(-50%, -50%)",
       margin: 0
     };
-    const child = this.props.slides[parseInt(this.props.slide, 10) + 1];
+    const child = this.props.slides[parseInt(this.props.slide) + 1];
     return child ? cloneWithProps(child, {
       key: this.props.slide + 1,
       slideIndex: this.props.slide + 1,

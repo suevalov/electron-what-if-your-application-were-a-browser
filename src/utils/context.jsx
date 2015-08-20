@@ -32,7 +32,7 @@ const context = function context(Component, params) {
         export: location.query && "export" in location.query,
         print: location.query && "print" in location.query,
         slide: this.props.params && "slide" in this.props.params ?
-          parseInt(this.props.params.slide, 10) : 0
+          parseInt(this.props.params.slide) : 0
       };
     },
 

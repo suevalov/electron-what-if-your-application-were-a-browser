@@ -1,5 +1,5 @@
-/* eslint new-cap:0, max-statements:0 */
-/* global window document localStorage */
+/*eslint new-cap:0, max-statements:0*/
+/*global window document localStorage*/
 
 import React from "react/addons";
 import assign from "object-assign";
@@ -78,8 +78,9 @@ class Deck extends React.Component {
       return "?presenter";
     } else if (this.context.overview) {
       return "?overview";
+    } else {
+      return "";
     }
-    return "";
   }
   _goToSlide(e) {
     if (e.key === "spectacle-slide") {
@@ -142,10 +143,10 @@ class Deck extends React.Component {
     }
     if (slide in fragments) {
       const count = _.size(fragments[slide]);
-      const visible = _.filter(fragments[slide], function(s) {
+      const visible = _.filter(fragments[slide], function (s) {
         return s.visible === true;
       });
-      const hidden = _.filter(fragments[slide], function(s) {
+      const hidden = _.filter(fragments[slide], function (s) {
         return s.visible !== true;
       });
       if (forward === true && visible.length !== count) {
@@ -163,8 +164,9 @@ class Deck extends React.Component {
         return false;
       }
       return true;
+    } else {
+      return true;
     }
-    return true;
   }
   _getTouchEvents() {
     const self = this;

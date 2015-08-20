@@ -3,6 +3,7 @@ import tweenState from "react-tween-state";
 import _ from "lodash";
 
 const Appear = React.createClass({
+  mixins: [tweenState.Mixin],
   propTypes: {
     children: React.PropTypes.node
   },
@@ -12,7 +13,6 @@ const Appear = React.createClass({
     overview: React.PropTypes.bool,
     slide: React.PropTypes.number
   },
-  mixins: [tweenState.Mixin],
   getInitialState() {
     return {
       active: false,
@@ -29,7 +29,7 @@ const Appear = React.createClass({
     const slide = this.context.slide;
     const fragment = React.findDOMNode(this.refs.fragment);
     const key = _.findKey(state.fragments[slide], {
-      "id": parseInt(fragment.dataset.fid, 10)
+      "id": parseInt(fragment.dataset.fid)
     });
     if (slide in state.fragments && state.fragments[slide].hasOwnProperty(key)) {
       this.setState({

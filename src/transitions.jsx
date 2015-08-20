@@ -1,4 +1,4 @@
-/* global setTimeout */
+/*global setTimeout*/
 
 import React from "react/addons";
 import assign from "object-assign";
@@ -52,7 +52,8 @@ export default {
 
     this.setState({
       z: 1
-    }, () => {
+    }, ()=> {
+
       if (this.props.transition.indexOf("fade") !== -1) {
         this.tweenState("opacity", {
           easing: tweenState.easingTypes.easeInOutQuad,
@@ -88,8 +89,11 @@ export default {
           endValue: 0
         });
       }
+
     });
+
     this.routerCallback(cb);
+
   },
   componentWillAppear(cb) {
     const state = {
@@ -115,15 +119,16 @@ export default {
     this.setState(state);
 
     this.routerCallback(cb, true);
-  },
 
+  },
   componentWillLeave(cb) {
-    const slide = parseInt(this.context.router.state.params.slide, 10) || 0;
+    const slide = parseInt(this.context.router.state.params.slide) || 0;
     const direction = this.props.slideIndex > slide;
 
     this.setState({
       z: ""
     }, () => {
+
       if (this.props.transition.indexOf("fade") !== -1) {
         this.tweenState("opacity", {
           easing: tweenState.easingTypes.easeInOutQuad,
@@ -155,9 +160,11 @@ export default {
           endValue: direction ? 90 : -90
         });
       }
+
     });
 
     this.routerCallback(cb);
+
   },
   getTransitionStyles() {
     let transformValue = "";
