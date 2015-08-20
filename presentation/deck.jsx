@@ -35,7 +35,7 @@ export default class extends React.Component {
         <Slide bgColor='primary'>
           <Layout>
             <Fill>
-              <Image src={images.logo} width='450px' />
+              <Image src={images.logo.replace('/', '')} width='450px' />
             </Fill>
             <Fill>
                 <div style={{ 'margin-top': '100px'}}>
@@ -48,7 +48,7 @@ export default class extends React.Component {
                 </div>
             </Fill>
           </Layout>
-          <Suevalov photo={images.me} />
+          <Suevalov photo={images.me.replace('/', '')} />
         </Slide>
         <Slide bgColor='black'>
             <Image src={images.timBernens.replace('/', '')} margin='0px auto 40px' height='293px'/>
@@ -96,7 +96,7 @@ export default class extends React.Component {
             </List>
         </Slide>
         <Slide bgColor='primary'>
-            <Image src={images.distribution} width='90%' />
+            <Image src={images.distribution.replace('/', '')} width='90%' />
         </Slide>
         <Slide bgColor='primary'>
             <Layout>
@@ -120,13 +120,13 @@ export default class extends React.Component {
         <Slide bgColor='primary'>
             <Layout>
                 <Fill>
-                    <Image src={images.logo} width='200px' />
+                    <Image src={images.logo.replace('/', '')} width='200px' />
                     <a href='http://electron.atom.io' target='_blank'>
                         <Text textColor='darkPrimary'>Electron.js</Text>
                     </a>
                 </Fill>
                 <Fill>
-                    <Image src={images.nwLogo} width='200px' />
+                    <Image src={images.nwLogo.replace('/', '')} width='200px' />
                     <a href='http://nwjs.io/' target='_blank'>
                         <Text textColor='darkPrimary'>NW.js</Text>
                     </a>
@@ -139,7 +139,7 @@ export default class extends React.Component {
         </Slide>
         <Slide bgColor='white'>
             <Heading size={4} textColor='darkPrimary'>Notable applications</Heading>
-            <Image src={images.electronApps} />
+            <Image src={images.electronApps.replace('/', '')} />
             <a href='https://github.com/nwjs/nw.js/wiki/List-of-apps-and-companies-using-nw.js' target='_blank' style={{ 'font-size': '10px', 'margin-top': '100px', 'display': 'block'}}>
                 <Text textColor='darkPrimary'>NW.js apps list</Text>
             </a>
@@ -149,10 +149,10 @@ export default class extends React.Component {
         </Slide>
         <Slide bgColor='black'>
             <Heading textColor='primary' size={4}>A 10,000 foot view of Electron</Heading>
-            <Image src={images.appStructure} height='500px'/>
+            <Image src={images.appStructure.replace('/', '')} height='500px'/>
         </Slide>
         <Slide bgColor='black'>
-            <Image src={images.mainProcess} height='500px'/>
+            <Image src={images.mainProcess.replace('/', '')} height='500px'/>
         </Slide>
         <Slide bgColor='primary'>
             <Heading textColor='darkPrimary' size={4}>Let's create Hello world app!</Heading>
@@ -173,7 +173,7 @@ export default class extends React.Component {
         </Slide>
         <Slide bgColor='primary'>
             <Heading textColor='darkPrimary' size={4}>Our Hello World!</Heading>
-            <Image src={images.runHelloWorld} width="100%" />
+            <Image src={images.runHelloWorld.replace('/', '')} width="100%" />
         </Slide>
         <Slide bgColor='primary'>
             <Heading textColor='darkPrimary' size={4}>How to create desktop from web?</Heading>
@@ -181,7 +181,7 @@ export default class extends React.Component {
         </Slide>
         <Slide bgColor='white'>
             <Heading textColor='darkPrimary' size={4}>Inter-Process Communication</Heading>
-            <Image src={images.subscribeSchema} width="100%" />
+            <Image src={images.subscribeSchema.replace('/', '')} width="100%" />
         </Slide>
         <Slide bgColor='primary'>
             <Heading textColor='darkPrimary' size={4}>Inter-Process Communication</Heading>
@@ -189,7 +189,7 @@ export default class extends React.Component {
         </Slide>
         <Slide bgColor='primary'>
             <Heading textColor='darkPrimary' size={4}>Electron Modules</Heading>
-            <Image src={images.modules} width="100%" />
+            <Image src={images.modules.replace('/', '')} width="100%" />
         </Slide>
         <Slide bgColor='primary' textColor='darkPrimary'>
             <Heading size={4} textColor='darkPrimary' textFont='primary'>
