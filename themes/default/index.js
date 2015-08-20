@@ -115,8 +115,8 @@ module.exports = {
       paddingLeft: 40,
       display: 'block',
       color: colors.primary,
-      fontSize: '4.9em',
-      lineHeight: 1,
+      fontSize: '3.9em',
+      lineHeight: 1.1,
       fontWeight: 'bold'
     },
     cite: {
@@ -192,7 +192,7 @@ module.exports = {
         color: 'black',
         fontSize: '3.19em',
         fontFamily: fonts.primary,
-        lineHeight: 1,
+        lineHeight: 1.4,
         fontWeight: '300',
         margin: '0.5em auto'
       },
@@ -200,7 +200,7 @@ module.exports = {
         color: 'black',
         fontSize: '2.44em',
         fontFamily: fonts.primary,
-        lineHeight: 1,
+        lineHeight: 1.4,
         fontWeight: '300',
         margin: '0.5em auto'
       }
@@ -213,7 +213,8 @@ module.exports = {
       textDecoration: 'none'
     },
     listItem: {
-      fontSize: '2.66em'
+      fontSize: '2.66em',
+      fontWeight: '300'
     },
     list: {
       textAlign: 'left',

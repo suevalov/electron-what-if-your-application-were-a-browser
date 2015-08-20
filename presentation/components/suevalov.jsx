@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import Link from '../../src/link';
-
-const images = {
-  photo: require('../me.png')
-};
 
 export default class Suevalov extends Component {
 
@@ -28,12 +23,12 @@ export default class Suevalov extends Component {
       <div className='suevalovComponent'>
         { this.renderMe() }
         <div>
-          <Link href='http://suevalov.com'>
+          <a href='http://suevalov.com' target='_blank'>
             http://suevalov.com
-          </Link>
-          <Link href='mailto:suevalov.me@gmail.com'>
+          </a>
+          <a href='mailto:suevalov.me@gmail.com'>
             suevalov.me@gmail.com
-          </Link>
+          </a>
         </div>
       </div>
     );

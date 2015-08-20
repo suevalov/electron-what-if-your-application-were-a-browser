@@ -27,12 +27,6 @@ _:-moz-tree-row(hover), ul .appear {
   border: none;
 }
 
-.thanksSlide {
-  width: 400px;
-  margin-left: -50px;
-  text-align: left;
-}
-
 .thanksSlide__links {
   margin-top: 20px;
 }

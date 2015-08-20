@@ -1,7 +1,7 @@
 import React from 'react/addons';
 
 import {
-  Appear, BlockQuote, Cite, CodePane, Deck, Fill,
+  BlockQuote, Cite, CodePane, Deck, Fill,
   Heading, Image, Layout, ListItem, List, Quote, Slide
 } from '../src/spectacle';
 
@@ -11,13 +11,13 @@ import Interactive from './components/interactive';
 import Suevalov from './components/suevalov';
 
 const images = {
-  thanks: require('./ironman-thanks.gif'),
-  kat: require('./kat.png'),
-  logo: require('./electron-logo.png'),
-  me: require('./me.png')
+  thanks: require('./images/ironman-thanks.gif'),
+  logo: require('./images/electron-logo.png'),
+  me: require('./images/me.png'),
+  timBernens: require('./images/tim-bernens.jpg')
 };
 
-preloader([images.me, images.kat, images.logo, images.thanks]);
+preloader([images.me, images.timBernens, images.logo, images.thanks]);
 
 export default class extends React.Component {
   render() {
@@ -41,33 +41,56 @@ export default class extends React.Component {
           </Layout>
           <Suevalov photo={images.me} />
         </Slide>
-        <Slide bgColor='black' notes='You can even put notes on your slide. How awesome is that?'>
-          <Image src={images.kat.replace('/', '')} margin='0px auto 40px' height='293px'/>
-          <Heading size={1} fit textColor='primary' textFont='secondary'>
-            Wait what?
-          </Heading>
+        <Slide bgColor='black'>
+            <Image src={images.timBernens.replace('/', '')} margin='0px auto 40px' height='293px'/>
+            <BlockQuote>
+              <Quote>The "Rule of Least Power" suggests choosing the least powerful language suitable for a given purpose</Quote>
+              <Cite>Tim Berners-Lee</Cite>
+            </BlockQuote>
+        </Slide>
+        <Slide bgColor='black'>
+            <Heading size={3} textColor='tertiary' textFont='primary'>
+                In other words...
+            </Heading>
+            <Heading size={5} textColor='primary' textFont='secondary'>
+                Any application that can be written in JavaScript, will eventually be written in JavaScript.
+            </Heading>
+        </Slide>
+        <Slide bgColor='primary' textColor='darkPrimary'>
+            <Heading size={4} textColor='darkPrimary' textFont='primary'>
+                The different aspects of JavaScript
+            </Heading>
+            <div style={{height: '40px'}}></div>
+            <List>
+                <ListItem>Front-end development</ListItem>
+                <ListItem>Command line interface (CLI) applications</ListItem>
+                <ListItem>Desktop (GUI) applications</ListItem>
+                <ListItem>Mobile applications</ListItem>
+                <ListItem>Back-end development</ListItem>
+                <ListItem>IoT</ListItem>
+                <ListItem>Any combination of the above</ListItem>
+            </List>
+        </Slide>
+        <Slide bgColor='primary' textColor='darkPrimary'>
+            <Heading size={4} textColor='darkPrimary' textFont='primary'>
+                The different aspects of JavaScript
+            </Heading>
+            <div style={{height: '40px'}}></div>
+            <List>
+                <ListItem>Front-end development</ListItem>
+                <ListItem>Command line interface (CLI) applications</ListItem>
+                <ListItem><strong>Desktop (GUI) applications</strong></ListItem>
+                <ListItem>Mobile applications</ListItem>
+                <ListItem>Back-end development</ListItem>
+                <ListItem>IoT</ListItem>
+                <ListItem>Any combination of the above</ListItem>
+            </List>
         </Slide>
         <Slide bgColor='primary' notes='<ul><li>talk about that</li><li>and that</li></ul>'>
           <CodePane
             lang='javascript'
             source={require('raw!./code/1.example')}
             margin='20px auto'/>
-        </Slide>
-        <Slide bgColor='black'>
-          <BlockQuote>
-            <Quote>Wonderfully formatted quotes</Quote>
-            <Cite>Ken Wheeler</Cite>
-          </BlockQuote>
-        </Slide>
-        <Slide bgColor='secondary' textColor='primary'>
-          <List>
-            <ListItem><Appear fid='1'>Inline style based theme system</Appear></ListItem>
-            <ListItem><Appear fid='2'>Autofit text</Appear></ListItem>
-            <ListItem><Appear fid='3'>Flexbox layout system</Appear></ListItem>
-            <ListItem><Appear fid='4'>React-Router navigation</Appear></ListItem>
-            <ListItem><Appear fid='5'>PDF export</Appear></ListItem>
-            <ListItem><Appear fid='6'>And...</Appear></ListItem>
-          </List>
         </Slide>
         <Slide bgColor='primary'>
           <Heading size={1} caps fit textColor='tertiary'>
@@ -77,7 +100,7 @@ export default class extends React.Component {
         </Slide>
         <Slide bgImage={images.thanks.replace('/', '')} bgDarken={0.6} align='left left'>
             <div className='thanksSlide'>
-              <Heading size={2} textColor='primary'>Thanks</Heading>
+              <Heading size={4} caps fits textColor='primary'>Thanks</Heading>
               <div className='thanksSlide__links'>
                 <a href="http://suevalov.com/" target="__blank">Alexander Suevalov</a>
                 <a href="mailto:suevalov.me@gmail.com">suevalov.me@gmail.com</a>
