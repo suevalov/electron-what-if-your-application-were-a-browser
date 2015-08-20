@@ -1,12 +1,13 @@
 const colors = {
-  primary: '#f9c300',
+  primary: '#A9ECF8',
+  darkPrimary: '#49848E',
   secondary: 'black',
   tertiary: 'white'
 };
 
 const fonts = {
-  primary: 'Open Sans Condensed',
-  secondary: 'Lobster Two',
+  primary: 'Source Sans Pro',
+  secondary: 'Open Sans Condensed',
   tertiary: 'monospace'
 };
 
@@ -43,7 +44,7 @@ module.exports = {
         transition: 'left 0.3s ease-in-out 0.2s',
         width: '20px',
         height: '20px',
-        transform: 'translate(-5px, -5px)'
+        transform: 'translate(-5px, -5px)',
       },
       pacmanTop: {
         position: 'absolute',
@@ -52,7 +53,7 @@ module.exports = {
         height: '10px',
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
-        background: colors.tertiary
+        background: colors.darkPrimary
       },
       pacmanBottom: {
         position: 'absolute',
@@ -61,7 +62,7 @@ module.exports = {
         height: '10px',
         borderBottomLeftRadius: '10px',
         borderBottomRightRadius: '10px',
-        background: colors.tertiary,
+        background: colors.darkPrimary,
         top: '10px'
       },
       point: {
@@ -72,7 +73,7 @@ module.exports = {
         height: '10px',
         borderWidth: 2,
         borderStyle: 'solid',
-        borderColor: colors.tertiary,
+        borderColor: colors.darkPrimary,
         borderRadius: '50%',
         transition: 'all 0.01s ease-out 0.4s'
       }
@@ -159,7 +160,7 @@ module.exports = {
         fontSize: '7.05em',
         fontFamily: fonts.primary,
         lineHeight: 1,
-        fontWeight: 'bold',
+        fontWeight: '300',
         margin: 0,
         zoom: 1
       },
@@ -168,7 +169,7 @@ module.exports = {
         fontSize: '5.88em',
         fontFamily: fonts.primary,
         lineHeight: 1,
-        fontWeight: 'bold',
+        fontWeight: '300',
         margin: 0
       },
       h3: {
@@ -176,7 +177,7 @@ module.exports = {
         fontSize: '4.9em',
         fontFamily: fonts.secondary,
         lineHeight: 1,
-        fontWeight: 'bold',
+        fontWeight: '300',
         margin: '0.5em auto'
       },
       h4: {
@@ -184,7 +185,7 @@ module.exports = {
         fontSize: '3.82em',
         fontFamily: fonts.primary,
         lineHeight: 1,
-        fontWeight: 'bold',
+        fontWeight: '300',
         margin: '0.5em auto'
       },
       h5: {
@@ -192,15 +193,15 @@ module.exports = {
         fontSize: '3.19em',
         fontFamily: fonts.primary,
         lineHeight: 1,
-        fontWeight: 'bold',
+        fontWeight: '300',
         margin: '0.5em auto'
       },
       h6: {
         color: 'black',
-        fontSize: '2.66em',
+        fontSize: '2.44em',
         fontFamily: fonts.primary,
         lineHeight: 1,
-        fontWeight: 'bold',
+        fontWeight: '300',
         margin: '0.5em auto'
       }
     },

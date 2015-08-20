@@ -2,32 +2,44 @@ import React from 'react/addons';
 
 import {
   Appear, BlockQuote, Cite, CodePane, Deck, Fill,
-  Heading, Image, Layout, Link, ListItem, List, Quote, Slide, Text
+  Heading, Image, Layout, ListItem, List, Quote, Slide
 } from '../src/spectacle';
 
 import preloader from '../src/utils/preloader';
 
-import Interactive from './interactive';
+import Interactive from './components/interactive';
+import Suevalov from './components/suevalov';
 
 const images = {
-  city: require('./city.jpg'),
+  thanks: require('./ironman-thanks.gif'),
   kat: require('./kat.png'),
-  logo: require('./formidable-logo.svg')
+  logo: require('./electron-logo.png'),
+  me: require('./me.png')
 };
 
-preloader([images.city, images.kat]);
+preloader([images.me, images.kat, images.logo, images.thanks]);
 
 export default class extends React.Component {
   render() {
     return (
-      <Deck transition={['slide']} transitionDuration={800}>
+      <Deck transition={['fade']} transitionDuration={800}>
         <Slide bgColor='primary'>
-          <Heading size={1} fit caps textColor='black'>
-            Electron
-          </Heading>
-          <Heading size={4} caps textColor='black'>
-            What if your desktop appplication were a browser?
-          </Heading>
+          <Layout>
+            <Fill>
+              <Image src={images.logo} width='450px' />
+            </Fill>
+            <Fill>
+                <div style={{ 'margin-top': '100px'}}>
+                  <Heading size={1} caps fits textColor='darkPrimary'>
+                    Electron
+                  </Heading>
+                  <Heading size={6} textColor='darkPrimary'>
+                    What if your desktop appplication were a browser?
+                  </Heading>
+                </div>
+            </Fill>
+          </Layout>
+          <Suevalov photo={images.me} />
         </Slide>
         <Slide bgColor='black' notes='You can even put notes on your slide. How awesome is that?'>
           <Image src={images.kat.replace('/', '')} margin='0px auto 40px' height='293px'/>
@@ -35,59 +47,19 @@ export default class extends React.Component {
             Wait what?
           </Heading>
         </Slide>
-        <Slide transition={['zoom', 'fade']} bgColor='primary' notes='<ul><li>talk about that</li><li>and that</li></ul>'>
+        <Slide bgColor='primary' notes='<ul><li>talk about that</li><li>and that</li></ul>'>
           <CodePane
             lang='javascript'
             source={require('raw!./code/1.example')}
             margin='20px auto'/>
         </Slide>
-        <Slide transition={['slide']} bgImage={images.city.replace('/', '')} bgDarken={0.75}>
-          <Appear fid='1'>
-            <Heading size={1} caps fit textColor='primary'>
-              Full Width
-            </Heading>
-          </Appear>
-          <Appear fid='2'>
-            <Heading size={1} caps fit textColor='tertiary'>
-              Adjustable Darkness
-            </Heading>
-          </Appear>
-          <Appear fid='3'>
-            <Heading size={1} caps fit textColor='primary'>
-              Background Imagery
-            </Heading>
-          </Appear>
-        </Slide>
-        <Slide transition={['zoom', 'fade']} bgColor='primary'>
-          <Heading caps fit>Flexible Layouts</Heading>
-          <Layout>
-            <Fill>
-              <Heading size={4} caps textColor='secondary' bgColor='white' margin={10}>
-                Left
-              </Heading>
-            </Fill>
-            <Fill>
-              <Heading size={4} caps textColor='secondary' bgColor='white' margin={10}>
-                Right
-              </Heading>
-            </Fill>
-          </Layout>
-        </Slide>
-        <Slide transition={['slide']} bgColor='black'>
+        <Slide bgColor='black'>
           <BlockQuote>
             <Quote>Wonderfully formatted quotes</Quote>
             <Cite>Ken Wheeler</Cite>
           </BlockQuote>
         </Slide>
-        <Slide transition={['slide', 'spin']} bgColor='primary'>
-          <Heading caps fit size={1} textColor='tertiary'>
-            Smooth
-          </Heading>
-          <Heading caps fit size={1} textColor='secondary'>
-            Combinable Transitions
-          </Heading>
-        </Slide>
-        <Slide transition={['fade']} bgColor='secondary' textColor='primary'>
+        <Slide bgColor='secondary' textColor='primary'>
           <List>
             <ListItem><Appear fid='1'>Inline style based theme system</Appear></ListItem>
             <ListItem><Appear fid='2'>Autofit text</Appear></ListItem>
@@ -97,17 +69,22 @@ export default class extends React.Component {
             <ListItem><Appear fid='6'>And...</Appear></ListItem>
           </List>
         </Slide>
-        <Slide transition={['slide']} bgColor='primary'>
+        <Slide bgColor='primary'>
           <Heading size={1} caps fit textColor='tertiary'>
             Your presentations are interactive
           </Heading>
           <Interactive/>
         </Slide>
-        <Slide transition={['spin', 'slide']} bgColor='tertiary'>
-          <Heading size={1} caps fit textColor='primary'>
-            Made with love in Seattle by
-          </Heading>
-          <Link href='http://www.formidablelabs.com'><Image width='100%' src={images.logo}/></Link>
+        <Slide bgImage={images.thanks.replace('/', '')} bgDarken={0.6} align='left left'>
+            <div className='thanksSlide'>
+              <Heading size={2} textColor='primary'>Thanks</Heading>
+              <div className='thanksSlide__links'>
+                <a href="http://suevalov.com/" target="__blank">Alexander Suevalov</a>
+                <a href="mailto:suevalov.me@gmail.com">suevalov.me@gmail.com</a>
+                <a href="https://github.com/suevalov" target="__blank" className="github">http://github.com/suevalov</a>
+                <a href="https://twitter.com/Suevalov" target="__blank" className="twitter">http://twitter.com/Suevalov</a>
+              </div>
+            </div>
         </Slide>
       </Deck>
     );

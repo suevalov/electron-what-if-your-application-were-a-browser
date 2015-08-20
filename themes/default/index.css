@@ -3,6 +3,10 @@
           transform-origin: center center;
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
 /* Firefox */
 
 _:-moz-tree-row(hover), .spectacle-deck {
@@ -11,4 +15,35 @@ _:-moz-tree-row(hover), .spectacle-deck {
 
 _:-moz-tree-row(hover), ul .appear {
   display: inline;
+}
+
+.suevalovComponent a {
+  color: #49848E;
+  display: inline-block;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: 100;
+  border: none;
+}
+
+.thanksSlide {
+  width: 400px;
+  margin-left: -50px;
+  text-align: left;
+}
+
+.thanksSlide__links {
+  margin-top: 20px;
+}
+
+.thanksSlide__links a {
+  font-family: 'Source Sans Pro', 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.6em;
+  margin-left: 10px;
+  display: block;
+  line-height: 1.9em;
+  text-decoration: none;
+  color: #A9ECF8;
 }
