@@ -43,7 +43,7 @@ export default class extends React.Component {
                     Electron
                   </Heading>
                   <Heading size={6} textColor='darkPrimary'>
-                    What if your desktop appplication were a browser?
+                    What if your desktop application were a browser?
                   </Heading>
                 </div>
             </Fill>
