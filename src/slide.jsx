@@ -1,125 +1,75 @@
-/*global window*/
-
-import React from "react/addons";
-import tweenState from "react-tween-state";
-import Base from "./base";
-import Transitions from "./transitions";
-import config from "../presentation/config";
-import radium from "radium";
+import React from 'react/addons';
+import assign from 'object-assign';
+import tweenState from 'react-tween-state';
+import Base from './base';
+import Transitions from './transitions';
+import config from '../presentation/config';
+import Radium from 'radium';
 
 const Slide = React.createClass({
-  displayName: "Slide",
+  displayName: 'Slide',
   mixins: [tweenState.Mixin, Base.Mixin, Transitions],
-  getDefaultProps() {
-    return {
-      align: "center center",
-      presenterStyle: {}
-    };
-  },
-  propTypes: {
-    align: React.PropTypes.string,
-    presenterStyle: React.PropTypes.object,
-    children: React.PropTypes.node,
-    notes: React.PropTypes.string,
-    slideIndex: React.PropTypes.number,
-    lastSlide: React.PropTypes.number
-  },
   contextTypes: {
-    styles: React.PropTypes.object,
-    export: React.PropTypes.bool,
-    print: React.PropTypes.bool,
-    overview: React.PropTypes.bool,
-    flux: React.PropTypes.object
+    styles: React.PropTypes.object
   },
   getInitialState() {
     return {
-      zoom: 1,
-      contentScale: 1
-    };
+      zoom: 1
+    }
   },
   setZoom() {
-    const content = React.findDOMNode(this.refs.content);
-    const zoom = (content.offsetWidth / config.width);
-    const contentScaleY = (content.parentNode.offsetHeight / config.height);
-    const contentScaleX = (content.parentNode.offsetWidth / config.width);
-    const contentScale = Math.min(contentScaleY, contentScaleX);
+    let content = React.findDOMNode(this.refs.content);
+    let zoom = (content.offsetWidth / config.width);
     this.setState({
-      zoom: zoom > 0.6 ? zoom : 0.6,
-      contentScale: contentScale < 1 ? contentScale : 1
+      zoom: zoom > 0.6 ? zoom : 0.6
     });
   },
   componentDidMount() {
     this.setZoom();
-    const slide = React.findDOMNode(this.refs.slide);
-    const frags = slide.querySelectorAll(".fragment");
-    if (frags && frags.length) {
-      Array.prototype.slice.call(frags, 0).forEach((frag, i) => {
-        frag.dataset.fid = i;
-        this.context.flux.actions.SlideActions.addFragment({
-          slide: this.props.slideIndex,
-          id: i,
-          visible: this.props.lastSlide > this.props.slideIndex
-        });
-      });
-    }
-    window.addEventListener("load", this.setZoom);
-    window.addEventListener("resize", this.setZoom);
+    window.addEventListener('resize', this.setZoom);
   },
   componentWillUnmount() {
-    window.removeEventListener("resize", this.setZoom);
+    window.removeEventListener('resize', this.setZoom);
   },
   render() {
-    const printStyles = this.context.print ? {
-      backgroundColor: "white",
-      backgroundImage: "none"
-    } : {};
-    const styles = {
+    let exportMode = false;
+    if (this.context.router.state.location.query &&
+        'export' in this.context.router.state.location.query) {
+      exportMode = true;
+    }
+    let styles = {
       outer: {
-        position: this.context.export ? "relative" : "absolute",
+        position: exportMode ? 'relative' : 'absolute',
         top: 0,
         left: 0,
-        width: "100%",
-        height: "100%",
-        display: "flex"
+        width: '100%',
+        height: '100%',
+        display: 'table',
+        tableLayout: 'fixed'
       },
       inner: {
-        display: "flex",
-        position: "relative",
-        flex: 1,
-        alignItems: this.props.align ? this.props.align.split(" ")[1] : "center",
-        justifyContent: this.props.align ? this.props.align.split(" ")[0] : "center"
+        display: 'table-cell',
+        textAlign: this.props.align ? this.props.align.split(' ')[0] : 'center',
+        verticalAlign: this.props.align ? this.props.align.split(' ')[1] : 'middle',
+        padding: this.state.zoom > 0.6 ? config.margin : 10
       },
       content: {
-        flex: 1,
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        maxHeight: config.height,
-        width: config.width,
-        fontSize: 16 * this.state.zoom,
-        transform: " translate(-50%,-50%) scale(" + this.state.contentScale + ")",
-        padding: this.state.zoom > 0.6 ? config.margin : 10
+        maxWidth: config.width,
+        fontSize: 16 * this.state.zoom
       }
     };
     return (
       <div className="spectacle-slide"
-        ref="slide"
-        style={[
-          styles.outer,
-          this.getStyles(),
-          this.getTransitionStyles(),
-          printStyles,
-          this.props.presenterStyle]}>
+        style={[styles.outer, this.getStyles(), this.getTransitionStyles()]}>
         <div style={[styles.inner]}>
           <div ref="content"
-            className="spectacle-content"
             style={[styles.content, this.context.styles.components.content]}>
             {this.props.children}
           </div>
         </div>
       </div>
-    );
+    )
   }
 });
 
-export default radium(Slide);
+export default Radium(Slide);

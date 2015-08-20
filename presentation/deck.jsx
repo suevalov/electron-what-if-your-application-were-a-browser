@@ -220,7 +220,7 @@ export default class extends React.Component {
                 </a>
             </div>
         </Slide>
-        <Slide bgImage={images.thanks.replace('/', '')} bgDarken={0.6} align='left left'>
+        <Slide bgImage={images.thanks.replace('/', '')} bgDarken={0.6}>
             <div className='thanksSlide'>
               <Heading size={4} caps textColor='primary'>Thanks</Heading>
               <div className='thanksSlide__links'>

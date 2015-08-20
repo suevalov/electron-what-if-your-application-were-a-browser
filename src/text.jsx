@@ -1,8 +1,7 @@
-/*global window*/
-
-import React from "react/addons";
-import Base from "./base";
-import Radium from "radium";
+import React from 'react/addons';
+import assign from 'object-assign';
+import Base from './base';
+import Radium from 'radium';
 
 @Radium
 class Text extends Base {
@@ -14,49 +13,49 @@ class Text extends Base {
       height: 24
     };
   }
-  componentDidMount() {
+  componentDidMount () {
     this.resize();
-    window.addEventListener("load", this.resize);
+    window.addEventListener('load', this.resize);
   }
-  componentWillReceiveProps() {
+  componentWillReceiveProps () {
     this.resize();
   }
   resize() {
     if (this.props.fit) {
-      const el = React.findDOMNode(this.refs.text);
-      const state = this.state;
-      const width = el.offsetWidth || el.getComputedTextLength();
-      const height = el.offsetHeight || 24;
+      let el = React.findDOMNode(this.refs.text)
+      let state = this.state
+      let width = el.offsetWidth || el.getComputedTextLength()
+      let height = el.offsetHeight || 24
       if (state.width !== width || state.height !== height) {
         this.setState({
-          width,
-          height
+          width: width,
+          height: height
         });
       }
     }
   }
   render() {
-    const viewBox = [
+    let viewBox = [
       0, 0,
       this.state.width,
       this.state.height - 8
-    ].join(" ");
-    const styles = {
+    ].join(' ');
+    let styles = {
       svg: {
-        width: "100%",
-        maxHeight: "100%",
-        fill: "currentcolor",
-        overflow: "visible"
+        width: '100%',
+        maxHeight: '100%',
+        fill: 'currentcolor',
+        overflow: 'visible'
       },
       text: {
-        fontFamily: "inherit",
-        fontSize: "1rem",
-        fontWeight: "inherit",
-        textAnchor: "middle"
+        fontFamily: 'inherit',
+        fontSize: '1rem',
+        fontWeight: 'inherit',
+        textAnchor: 'middle'
       }
     };
     return this.props.fit
-    ? <span style={[this.context.styles.components.text, this.getStyles(), this.props.style]}>
+    ? <span style={[this.context.styles.components.text, this.getStyles()]}>
         <svg {...this.props}
           viewBox={viewBox}
           style={styles.svg}>
@@ -69,14 +68,14 @@ class Text extends Base {
           </text>
         </svg>
       </span>
-    : <p style={[this.context.styles.components.text, this.getStyles(), this.props.style]}>
+    : <p style={[this.context.styles.components.text, this.getStyles()]}>
         {this.props.children}
-      </p>;
+      </p>
   }
 }
 
 Text.contextTypes = {
   styles: React.PropTypes.object
-};
+}
 
 export default Text;
